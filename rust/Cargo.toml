@@ -1,0 +1,28 @@
+[package]
+name = "godot-performance"
+version = "0.8.0"
+edition = "2021"
+license = "MIT"
+rust-version = "1.80"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[features]
+
+[dependencies]
+godot = { git = "https://github.com/godot-rust/gdext", branch = "master", features=["api-4-3", "register-docs"] }
+
+[profile.release]
+opt-level = 3
+debug = 2
+strip = "debuginfo"
+lto = "fat"
+codegen-units = 1
+
+[profile.dev]
+opt-level = 1
+
+[package.metadata.docs.rs]
+license-file = "../LICENSE"
