@@ -13,6 +13,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	for i in 1000000:
-		summator_node.add(1)
-		#test_node.noop()
+		#summator_node.add(1)
+		#PerformanceTestNodeRust.noop()
+		noop()
 	label.text = str(Engine.get_frames_per_second())
+
+func noop():
+	pass
