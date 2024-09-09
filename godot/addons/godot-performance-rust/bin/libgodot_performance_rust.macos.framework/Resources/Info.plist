@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleExecutable</key>
-	<string>libgodot_performance_rust.macos</string>
+	<string>libgodot_performance_rust.macos.dylib</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.godot_performance_rust.godot_performance_rust</string>
 	<key>CFBundleInfoDictionaryVersion</key>

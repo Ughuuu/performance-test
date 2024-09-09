@@ -1,4 +1,6 @@
+#![feature(panic_always_abort)]
 use godot::prelude::*;
+use std::panic;
 #[derive(GodotClass)]
 #[class(base=Object, init)]
 pub struct RustPerformanceTestExtensionLibrary {}
@@ -9,6 +11,7 @@ unsafe impl ExtensionLibrary for RustPerformanceTestExtensionLibrary {
 #[derive(GodotClass)]
 #[class(base=Node2D)]
 pub struct PerformanceTestNodeRust {
+    array: Array<Variant>,
     callable: Option<Callable>,
     base: Base<Node2D>,
 }
@@ -16,6 +19,7 @@ pub struct PerformanceTestNodeRust {
 impl INode2D for PerformanceTestNodeRust {
     fn init(base: Base<Node2D>) -> Self {
         Self {
+            array: array![],
             callable: None,
             base
         }
@@ -26,6 +30,10 @@ impl PerformanceTestNodeRust {
     #[func]
     fn noop() {
     }
+    #[func]
+    fn panic_func() {
+        panic!("123");
+    }
 
     #[func]
     fn noop_binded(&self){
@@ -34,10 +42,11 @@ impl PerformanceTestNodeRust {
     #[func]
     fn set_callable(&mut self, callable: Callable) {
         self.callable = Some(callable);
+
     }
 
     #[func]
     fn call(&self) {
-        self.callable.as_ref().unwrap().callv(array![]);
+        self.callable.as_ref().unwrap().callv(self.array.clone());
     }
 }

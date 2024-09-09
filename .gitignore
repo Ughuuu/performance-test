@@ -2,3 +2,4 @@
 .DS_Store
 /rust/target
 /godot/.godot
+/src/target

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Godot Rapier 2D"
+config/name="Godot Performance"
 config/features=PackedStringArray("4.3")
 
 [display]
@@ -20,7 +20,7 @@ window/size/viewport_height=1080
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-rapier2d/plugin.cfg")
+enabled=PackedStringArray()
 
 [physics]
 
